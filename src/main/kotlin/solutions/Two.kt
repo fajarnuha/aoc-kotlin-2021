@@ -3,13 +3,16 @@ package solutions
 import java.util.*
 
 class Two: Solution {
+
+    private val windowSize = 3
+
     override fun solve(inputs: List<String>) {
         val queue = ArrayDeque<Int>()
         var positives = 0
         for (i in inputs) {
-            val prev = if (queue.size == 3) queue.sum() else null
+            val prev = queue.sumOrNull()
             queue.popPush(i.toInt())
-            val curr = if (queue.size == 3) queue.sum() else null
+            val curr = queue.sumOrNull()
             if (prev == null || curr == null) continue
             if (curr > prev) {
                 positives++
@@ -19,9 +22,11 @@ class Two: Solution {
     }
 
     private fun ArrayDeque<Int>.popPush(i: Int) {
-        if (size == 3) {
+        if (size == windowSize) {
             removeFirst()
         }
         addLast(i)
     }
+
+    private fun ArrayDeque<Int>.sumOrNull(): Int? = if (size == windowSize) sum() else null
 }
