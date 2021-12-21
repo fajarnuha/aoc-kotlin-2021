@@ -1,6 +1,6 @@
 package solutions
 
-class Three: Solution {
+class Day2Part1: Solution {
 
     override fun solve(inputs: List<String>) {
         var horizontal = 0

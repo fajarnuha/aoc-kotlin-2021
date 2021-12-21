@@ -2,7 +2,7 @@ package solutions
 
 import java.util.*
 
-class Two: Solution {
+class Day1Part2: Solution {
 
     private val windowSize = 3
 

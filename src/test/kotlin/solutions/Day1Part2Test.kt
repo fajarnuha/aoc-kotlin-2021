@@ -1,13 +1,12 @@
 package solutions
 
-import org.junit.Assert.*
 import org.junit.Test
 
-class TwoTest {
+class Day1Part2Test {
 
     @Test
     fun `test two`() {
-        val solver = Two()
+        val solver = Day1Part2()
         solver.solve(listOf(
             "199",
             "200",

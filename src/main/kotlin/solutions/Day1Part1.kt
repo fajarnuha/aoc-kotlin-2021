@@ -1,7 +1,7 @@
 package solutions
 
 
-class One: Solution{
+class Day1Part1: Solution{
     override fun solve(inputs: List<String>) {
         var back: Int? = null
         var positive = 0
