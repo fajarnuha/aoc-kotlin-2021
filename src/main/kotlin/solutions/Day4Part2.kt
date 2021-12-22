@@ -2,17 +2,14 @@ package solutions
 
 import java.io.File
 
-/**
- * Day 4 problem requires different input parsing method
- * */
-class Day4Part1 {
+class Day4Part2 {
 
     private val inputFileName = "4.txt"
 
     fun solve() {
 
         val input = File("inputs/$inputFileName").readText().split("\n\n")
-
+        var bingoCount = 0
 
         val sequence = input.first().split(",").map { it.toInt() }
 
@@ -22,7 +19,7 @@ class Day4Part1 {
                     rawCol.toInt() to false
                 }.toMutableList()
             }
-        }
+        }.toMutableList()
 
         var result = -1
         run outer@{
@@ -31,15 +28,18 @@ class Day4Part1 {
                     markBoard(num, it)
                     val bingo = scanBoard(it)
                     if (bingo) {
-                        result = scoreBoard(num, it)
-                        return@outer
+                        bingoCount += 1
+                        if (bingoCount == boards.size) {
+                            result = scoreBoard(num, it)
+                            return@outer
+                        }
                     }
                 }
             }
         }
         println("Result = $result")
-
     }
+
 
     private fun markBoard(number: Int, board: List<MutableList<Pair<Int, Boolean>>>) {
         for (x in board.indices) {

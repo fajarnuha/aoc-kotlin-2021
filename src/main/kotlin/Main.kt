@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
 //    }
 //    solver.solve(input)
 
-    val solver = Day4Part1()
+    val solver = Day4Part2()
     solver.solve()
 
 }
