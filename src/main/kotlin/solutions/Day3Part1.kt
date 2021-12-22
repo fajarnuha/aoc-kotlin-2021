@@ -1,7 +1,13 @@
 package solutions
 
+import parseInput
+
 class Day3Part1 : Solution {
-    override fun solve(inputs: List<String>) {
+
+    override val inputFileName: String = "3_1.txt"
+
+    override fun solve() {
+        val inputs = parseInput(inputFileName)
         var gamma = ""
         var epsilon = ""
         var size = 0

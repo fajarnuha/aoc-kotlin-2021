@@ -1,8 +1,13 @@
 package solutions
 
+import parseInput
+
 class Day3Part2 : Solution {
 
-    override fun solve(inputs: List<String>) {
+    override val inputFileName: String = "3_2.txt"
+
+    override fun solve() {
+        val inputs = parseInput(inputFileName)
         val oxy = filterOxygen(inputs, 0).first()
         val co2 = filterCO2(inputs, 0).first()
 

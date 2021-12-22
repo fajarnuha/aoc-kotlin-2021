@@ -1,8 +1,13 @@
 package solutions
 
+import parseInput
+
 class Day2Part1: Solution {
 
-    override fun solve(inputs: List<String>) {
+    override val inputFileName: String = "2_1.txt"
+
+    override fun solve() {
+        val inputs = parseInput(inputFileName)
         var horizontal = 0
         var depth = 0
 

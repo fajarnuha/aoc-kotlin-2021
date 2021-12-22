@@ -1,12 +1,16 @@
 package solutions
 
+import parseInput
 import java.util.*
 
-class Day1Part2: Solution {
+class Day1Part2 : Solution {
 
     private val windowSize = 3
 
-    override fun solve(inputs: List<String>) {
+    override val inputFileName: String = "1_2.txt"
+
+    override fun solve() {
+        val inputs = parseInput(inputFileName)
         val queue = ArrayDeque<Int>()
         var positives = 0
         for (i in inputs) {
