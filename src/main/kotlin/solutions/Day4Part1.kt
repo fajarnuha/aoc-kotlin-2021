@@ -26,18 +26,19 @@ class Day4Part1 {
         }
 
         var result = -1
-
-        sequence.forEach outer@{ num ->
-            boards.forEach {
-                markBoard(num, it)
-                val bingo = scanBoard(it)
-                if (bingo) {
-                    result = scoreBoard(num, it)
-                    println("Result = $result")
-                    return@outer
+        run outer@{
+            sequence.forEach { num ->
+                boards.forEach {
+                    markBoard(num, it)
+                    val bingo = scanBoard(it)
+                    if (bingo) {
+                        result = scoreBoard(num, it)
+                        return@outer
+                    }
                 }
             }
         }
+        println("Result = $result")
 
     }
 
@@ -57,7 +58,6 @@ class Day4Part1 {
             for (y in board[x].indices) {
                 if (!board[x][y].second) {
                     bingoX = false
-                    break
                 }
 
                 if (x == board.lastIndex) {
