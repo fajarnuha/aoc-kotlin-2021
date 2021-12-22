@@ -4,8 +4,9 @@ class Day3Part1 : Solution {
     override fun solve(inputs: List<String>) {
         var gamma = ""
         var epsilon = ""
-        val ones = mutableListOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
         var size = 0
+
+        val ones = mutableListOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
         for (input in inputs) {
             size += 1
@@ -15,7 +16,7 @@ class Day3Part1 : Solution {
         }
 
         val half = size / 2
-        ones.forEachIndexed { index, i ->
+        ones.forEach { i ->
             gamma += if (i > half) "1" else "0"
             epsilon += if (i < half) "1" else "0"
         }
