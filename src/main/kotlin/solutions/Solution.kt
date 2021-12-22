@@ -1,5 +1,6 @@
 package solutions
 
 interface Solution {
-    fun solve(inputs: List<String>)
+    val inputFileName: String
+    fun solve()
 }

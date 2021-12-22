@@ -2,14 +2,11 @@ package solutions
 
 import java.io.File
 
-/**
- * Day 4 problem requires different input parsing method
- * */
-class Day4Part1 {
+class Day4Part1: Solution {
 
-    private val inputFileName = "4.txt"
+    override val inputFileName = "4.txt"
 
-    fun solve() {
+    override fun solve() {
 
         val input = File("inputs/$inputFileName").readText().split("\n\n")
 

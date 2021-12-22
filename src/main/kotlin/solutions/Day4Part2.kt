@@ -2,11 +2,11 @@ package solutions
 
 import java.io.File
 
-class Day4Part2 {
+class Day4Part2: Solution {
 
-    private val inputFileName = "4.txt"
+    override val inputFileName = "4.txt"
 
-    fun solve() {
+    override fun solve() {
 
         val input = File("inputs/$inputFileName").readText().split("\n\n")
 
