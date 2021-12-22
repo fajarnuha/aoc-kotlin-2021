@@ -9,7 +9,6 @@ class Day4Part2 {
     fun solve() {
 
         val input = File("inputs/$inputFileName").readText().split("\n\n")
-        var bingoCount = 0
 
         val sequence = input.first().split(",").map { it.toInt() }
 
@@ -22,21 +21,24 @@ class Day4Part2 {
         }.toMutableList()
 
         var result = -1
+        val blacklist = mutableListOf<Int>()
         run outer@{
             sequence.forEach { num ->
-                boards.forEach {
-                    markBoard(num, it)
-                    val bingo = scanBoard(it)
+                boards.forEachIndexed { i, board ->
+                    if (blacklist.contains(i)) return@forEachIndexed
+                    markBoard(num, board)
+                    val bingo = scanBoard(board)
                     if (bingo) {
-                        bingoCount += 1
-                        if (bingoCount == boards.size) {
-                            result = scoreBoard(num, it)
+                        if (blacklist.size == boards.size - 1) {
+                            result = scoreBoard(num, board)
                             return@outer
                         }
+                        blacklist += i
                     }
                 }
             }
         }
+
         println("Result = $result")
     }
 
